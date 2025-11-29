@@ -50,8 +50,9 @@ ingredient_checker = Agent(
 
 recipe_finder = Agent(
     role="Recipe Finder",
-    goal="Find recipes online using available ingredients.",
-    backstory="You find accurate, tasty recipes from the web.",
+    goal="Find recipes online using ONLY the available ingredients provided.",
+    backstory="""You are a strict recipe searcher who NEVER suggests ingredients 
+    that aren't available. You only find recipes using the exact ingredients given.""",
     llm=ollama_model,
     tools=tools,
     verbose=True
@@ -59,8 +60,9 @@ recipe_finder = Agent(
 
 meal_writer = Agent(
     role="Meal Writer",
-    goal="Write a simple step-by-step recipe based on the chosen dish.",
-    backstory="You are a friendly cooking teacher writing instructions for beginners.",
+    goal="Write recipes using ONLY the ingredients confirmed as available.",
+    backstory="""You are a cooking teacher who never adds extra ingredients. 
+    You work strictly within the constraints of what's available.""",
     llm=ollama_model,
     verbose=True
 )
@@ -81,15 +83,21 @@ ingredient_task = Task(
 )
 
 recipe_task = Task(
-    description="Find 2–3 recipes online using these ingredients. Use the Recipe Search tool.",
+    description=f"""Find 2-3 recipes online that use ONLY these ingredients: {ingredients_list}.
+    You MUST NOT suggest recipes with ingredients outside this list.
+    Use the Recipe Search tool to find real recipes.""",
     agent=recipe_finder,
-    expected_output="List of real recipes."
+    expected_output="List of 2-3 real recipes using only the provided ingredients.",
+    context=[ingredient_task]  # Explicitly pass context
 )
 
 meal_task = Task(
-    description="Choose one recipe and write a beginner-friendly step-by-step recipe.",
+    description=f"""Choose ONE recipe from the previous search results.
+    Write a step-by-step recipe using ONLY these ingredients: {ingredients_list}.
+    DO NOT add any ingredients not in this list.""",
     agent=meal_writer,
-    expected_output="A clear, simple recipe."
+    expected_output="A clear recipe using only the available ingredients.",
+    context=[ingredient_task, recipe_task]  # Pass both previous tasks
 )
 
 # ---------------------------------------

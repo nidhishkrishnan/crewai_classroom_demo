@@ -1,5 +1,7 @@
 ## ✅ **Demo 1:** Story Maker → Writer → Editor (Photosynthesis)    
 ## ✅ **Demo 2:** Travel Planner (user enters a city → 3 agents create itinerary)
+## ✅ **Demo 3:** Recipe Finder (user enters ingredients → agents find and write recipes)
+
 
 Both examples are explained clearly for classroom use.
 You can copy/paste this as your README.md.
@@ -88,6 +90,54 @@ This demo is perfect for showing:
 
 ---
 
+# 🍳 **Demo 3: Recipe Finder (Ingredient-Based Meal Planning)**
+
+This example shows how AI agents can work with **real-world constraints** and **web tools**.
+When you run the script, it asks:
+```
+Enter your available ingredients, separated by commas:
+```
+
+You type something like **egg, fish, cabbage, carrot, salt, oil**, and the AI team works:
+
+### 👥 Agents in Demo 3
+
+1. **Ingredient Checker** 📋
+   * Verifies which ingredients are available
+   * Creates a clean list for the next agents
+
+2. **Recipe Finder** 🔍
+   * Searches the web for real recipes using the ingredients
+   * Uses a web search tool to find 2-3 matching recipes
+   * Must only suggest recipes with available ingredients
+
+3. **Meal Writer** 👨‍🍳
+   * Selects the best recipe from search results
+   * Writes clear, beginner-friendly cooking instructions
+   * Creates step-by-step directions using only available ingredients
+
+### 🧠 Flow of Demo 3
+
+1. User enters available ingredients
+2. Ingredient Checker → Confirms the ingredient list
+3. Recipe Finder → Searches web for matching recipes (uses Recipe Search Tool)
+4. Meal Writer → Creates a simple, step-by-step recipe
+5. Program prints a complete meal plan
+
+### 🛠️ Special Features in Demo 3
+
+This demo introduces **AI tools**:
+* **Recipe Search Tool** — Searches the web for real recipes
+* **Calculator Tool** — Can calculate portions or nutritional info
+
+This shows students:
+* How AI agents can use external tools
+* Web search integration with AI
+* Working within real-world constraints (limited ingredients)
+* Multi-agent collaboration with tool usage
+
+---
+
 # 🛠️ Setup Instructions for Both Demos
 
 ## 1. Install **Ollama** (Local AI Model)
@@ -126,10 +176,12 @@ Your **requirements.txt** should include:
 
 ```
 crewai
-crewai-tools
-langchain
+langchain_openai
 langchain_community
 langchain_ollama
+litellm
+google-search-results
+langchain_experimental
 python-dotenv
 ```
 
