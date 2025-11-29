@@ -3,3 +3,5 @@ langchain_openai
 langchain_community
 langchain_ollama
 litellm
+google-search-results
+langchain_experimental
