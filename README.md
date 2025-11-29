@@ -8,7 +8,7 @@ You can copy/paste this as your README.md.
 
 ---
 
-# CrewAI Classroom Demo 🤖📚
+# Agentic AI Demo 🤖📚
 
 Welcome to the **CrewAI Classroom Demo**!
 This project contains **two multi-agent examples** designed to teach students how AI “teamwork” works using **CrewAI + Ollama** (running locally).
