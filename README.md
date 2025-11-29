@@ -35,6 +35,8 @@ Instead of doing it all yourself, an AI team works together:
 
 ### 🧠 Flow of Demo 1
 
+![Story Maker Agent Flow](images/story-maker.png)
+
 1. **Start:** The Crew gives the topic **"Photosynthesis"**
 2. **Researcher:** Collects 3 simple facts
 3. **Writer:** Creates a student-friendly paragraph
@@ -75,6 +77,8 @@ You type something like **Seattle**, **Tokyo**, or **Paris**, and the AI team wo
    * Uses the attractions + budget to build a schedule
 
 ### 🧠 Flow of Demo 2
+
+![Travel Planner Agent Flow](images/travel-planner.png)
 
 1. User types a city name
 2. Destination Agent → Finds places to visit
@@ -117,6 +121,8 @@ You type something like **egg, fish, cabbage, carrot, salt, oil**, and the AI te
    * Creates step-by-step directions using only available ingredients
 
 ### 🧠 Flow of Demo 3
+
+![Recipe Finder Agent Flow](images/recipe-finder.png)
 
 1. User enters available ingredients
 2. Ingredient Checker → Confirms the ingredient list
